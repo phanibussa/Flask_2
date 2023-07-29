@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     return "Hello, World!"
 
-@app.route("/calculator", methods=["GET", "POST"])
+@app.route("/calculator", methods=["GET","POST"])
 def math_opertaion():
     operation = request.json["operation"]
     num1 = float(request.json["num1"])
@@ -20,7 +20,7 @@ def math_opertaion():
         result = num1/num2
     else:
         result = num1-num2    
-    return result     
+    return "the operatio is : {} and the result is : {}".format(operation,result) 
 
 print(__name__)
 if __name__ == "__main__":
